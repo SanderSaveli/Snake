@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/gameStyle.css">
+    <title>SnakeGame</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="body">
+            <div class="body__row">
+                <div class="body__score">
+                    <span>Score: </span>
+                    <span id="score" class="body__score-value"></span>
+                </div>
+                <div class="body__difficulty">
+                    <span>Normal</span>
+                </div>
+            </div>
+            <canvas id="mainCanvas" class="canvas" width="320" height="320"></canvas>
+            <div id = "restartMenu" class="body__menu hide">
+                <a href="game.html" class="body__restart button ">Restart</a>
+                <a href="index.html" class="body__back button">Back</a>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/game.js"></script>
+
+</body>
+</html>
