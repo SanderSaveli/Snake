@@ -1,4 +1,4 @@
-export class Snake{
+export default class Snake{
     constructor(stratSize, startPosition, direction, fielsSize){
         this.fieldSize = fielsSize;
         this._dir = direction;
@@ -33,7 +33,7 @@ export class Snake{
         }
         return false;
     }
-    eatBerry(){
+    addBodyElement(){
         this.body.push({ x: this.lastEl[0], y:this.lastEl[1] });
     }
 
@@ -51,16 +51,5 @@ export class Snake{
             return [position[0],0];
         }
         return position;
-    }
-}
-
-export class bodyEl{
-    constructor(x, y){
-        this.x = x;
-        this.y = y;
-    }
-
-    getGridCoordinate(){
-        return [this.x*config.cellSize, this.y*config.cellSize ];
     }
 }

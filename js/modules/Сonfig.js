@@ -7,3 +7,7 @@ const config = {
     startDir : [0, -1],
 }
 export default config;
+ 
+function changeFieldSize(n){
+    config.fieldSize =n;
+}

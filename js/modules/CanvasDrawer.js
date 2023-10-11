@@ -1,4 +1,4 @@
-export default class ViewDrawer{
+export default class CanvasDrawer{
     constructor(bodyColor, headColor, berryColor, cellSize){
         this.bodyColor = bodyColor;
         this.headColor = headColor;

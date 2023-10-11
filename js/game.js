@@ -1,57 +1,54 @@
 import Berry from "./modules/Berry.js";
-import config from "./modules/config.js";
-import ViewDrawer from "./modules/ViewDrawer.js";
-import { bodyEl, Snake } from "./modules/Snake.js";
+import config from "./modules/Сonfig.js";
+import CanvasDrawer from "./modules/CanvasDrawer.js";
+import Snake from "./modules/Snake.js";
+import ScoreManager from "./modules/ScoreManager.js"; 
+import ButtonManager from "./modules/ButtonManager.js";
+import SetFieldSize from "./modules/Field.js";
+import DirectionChanger from "./modules/DirectionChanger.js";
 
-let score = 0;
 let gameOn = true;
 
-let menu = document.getElementById('restartMenu');
-let scoreView = document.getElementById('score');
+var canvasDrawer;
+var berry;
+var snake;
+var scoreManager;
+var buttonManager;
+var directionChanger;
 
-var viewDrawer = new ViewDrawer("#a30000", "#f50505", "#55f505",config.cellSize);
-var berry = new Berry(config.fieldSize);
-var snake = new Snake(config.startSize, config.startPositon, config.startDir, config.fieldSize);
-
-
-function startGame(){
-    score =0;
-    scoreView.textContent = score;
-    menu.classList.add("hide");
+function gameStart(){
+    console.log(localStorage.getItem("fieldSize"));
+    config.fieldSize = [localStorage.getItem("fieldSize"), localStorage.getItem("fieldSize")];
+    SetFieldSize(config.fieldSize[0], config.fieldSize[1]);
+    iniVars();
+    update();
 }
-
-
-function changeDirection(e){
-    if(e.code == "ArrowDown"){
-        snake.changeDirection([0 ,1]);
-    }
-    if(e.code == "ArrowUp"){
-        snake.changeDirection([0 ,-1]);
-    }
-    if(e.code == "ArrowLeft"){
-        snake.changeDirection([-1 ,0]);
-    }
-    if(e.code == "ArrowRight"){
-        snake.changeDirection([1 ,0]);
-    }
-}
-
 function update(){
     if(!gameOn){
         return;
     }
+    snake.changeDirection(directionChanger.dir);
     snake.moveSnake();
     checkCollision();
-    viewDrawer.drawFrame(snake.body, berry);
+    canvasDrawer.drawFrame(snake.body, berry);
     setTimeout(update, config.gameSpeed);
 }
 
 
 function gameEnd(){
     gameOn = false;
-    menu.classList.remove("hide");
-    console.log("end");
+    buttonManager.setRestartMenuStatys(true);
 }
+
+function iniVars(){
+    canvasDrawer = new CanvasDrawer("#a30000", "#f50505", "#55f505",config.cellSize);
+    berry = new Berry(config.fieldSize);
+    snake = new Snake(config.startSize, config.startPositon, config.startDir, config.fieldSize);
+    scoreManager = new ScoreManager();
+    buttonManager = new ButtonManager();
+    directionChanger = new DirectionChanger();
+}
+
 
 function checkCollision(){
     for(let i =snake.body.length -1 ; i >0; i--){
@@ -61,13 +58,10 @@ function checkCollision(){
         }
     }
     if(snake.checkCollisionWithHead(berry.pos)){
-        snake.eatBerry();
+        snake.addBodyElement();
         berry.randomiseBerry(snake.body);
-        score++;
-        scoreView.textContent = score;
+        scoreManager.increaseScore();
     }
 }
 
-document.addEventListener("keyup", changeDirection);
-startGame();
-update();
+gameStart();

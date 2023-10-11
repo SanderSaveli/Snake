@@ -12,7 +12,16 @@
             <div class="body__title">
                 Snake
             </div>
+            <div class="slider">
+                    <input type="range" name="fieldSize" id="fieldSize" min="6" max="20" oninput="setSize(value)"> 
+            </div>
             <a href="game.html" class="body__button">start</a>
+            <script type="text/javascript">
+                function setSize(n){
+                    localStorage.setItem("fieldSize", n);
+                    console.log(localStorage.getItem("fieldSize"));
+                }
+            </script>
         </div>
     </div>
 </body>
