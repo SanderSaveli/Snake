@@ -17,12 +17,12 @@ var buttonManager;
 var directionChanger;
 
 function gameStart(){
-    console.log(localStorage.getItem("fieldSize"));
     config.fieldSize = [localStorage.getItem("fieldSize"), localStorage.getItem("fieldSize")];
+    config.gameSpeed = localStorage.getItem("gameSpeed");
+    document.getElementById('speed').textContent = config.gameSpeed+" turn/ms";
     SetFieldSize(config.fieldSize[0], config.fieldSize[1]);
     iniVars();
     update();
-    console.log(localStorage.getItem("fieldSize"));
 }
 function update(){
     if(!gameOn){

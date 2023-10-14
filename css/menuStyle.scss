@@ -21,12 +21,12 @@ body{
 }
 .body__title {
     font-size: 45px;
+    margin: 40px 0;
 }
 .body__button {
     text-decoration: none;
     color: aliceblue;
     background-color: $grrenMain;
-    margin-top: 100px;
     border-radius: 20px;
     padding: 20px 40px;
     transition: 0.5s;
@@ -35,7 +35,6 @@ body{
     background-color: $grrenDark;
 }
 .range{
-    margin-top: 40px ;
     height: 200px;
     position: relative;
 }
@@ -112,6 +111,12 @@ body{
     left: 50%;
     transform: translate(-50%);
     z-index: 2;
+}
+
+.paranetrName{
+    font-size: 20px;
+    margin: 10px;
+    margin-top: 20px;
 }
 
 
