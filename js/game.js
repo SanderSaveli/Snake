@@ -3,7 +3,7 @@ import config from "./modules/Сonfig.js";
 import CanvasDrawer from "./modules/CanvasDrawer.js";
 import Snake from "./modules/Snake.js";
 import ScoreManager from "./modules/ScoreManager.js"; 
-import ButtonManager from "./modules/ButtonManager.js";
+import ButtonManager from "./modules/ButtonShower.js";
 import SetFieldSize from "./modules/Field.js";
 import DirectionChanger from "./modules/DirectionChanger.js";
 
@@ -22,6 +22,7 @@ function gameStart(){
     SetFieldSize(config.fieldSize[0], config.fieldSize[1]);
     iniVars();
     update();
+    console.log(localStorage.getItem("fieldSize"));
 }
 function update(){
     if(!gameOn){

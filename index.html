@@ -12,15 +12,32 @@
             <div class="body__title">
                 Snake
             </div>
-            <div class="slider">
-                    <input type="range" name="fieldSize" id="fieldSize" min="6" max="20" oninput="setSize(value)"> 
+            <div class="range">
+                <div class="range__field">
+                    <input type="range" name="fieldSize" id="fieldSize" min="6" max="20"> 
+                </div>
+                <div class="range__pointer" id="fieldSizePointer"></div>
+                <div class="range__value">
+                    <div class="range__value-static range__value" id="fieldSizeValue">
+                        <span id="fieldSizeText"></span>
+                    </div>
+                </div>
             </div>
+            <div class="range">
+                <div class="range__field">
+                    <input type="range" name="fieldSize" id="gameSpeed" min="6" max="20"> 
+                </div>
+                <div class="range__pointer" id="gameSpeedPointer"></div>
+                <div class="range__value">
+                    <div class="range__value-static range__value">
+                        <span id="gameSppedText"></span>
+                    </div>
+                </div>
+            </div>
+            
             <a href="game.html" class="body__button">start</a>
-            <script type="text/javascript">
-                function setSize(n){
-                    localStorage.setItem("fieldSize", n);
-                    console.log(localStorage.getItem("fieldSize"));
-                }
+            <script src="js/configSetter.js">
+                
             </script>
         </div>
     </div>
