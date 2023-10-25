@@ -1,6 +1,7 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -11,10 +12,10 @@
     <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#cf1111">
     <meta name="theme-color" content="#cf1111">
+    <link rel="stylesheet" href="/css/menuStyle.css">
 
-    <link rel="stylesheet" href="css/menuStyle.css">
     <title>Snake</title>
-</head>
+    </head>
 <body>
     <div class="wrapepr">
         <div class="body">
@@ -49,8 +50,14 @@
                     </div>
                 </div>
             </div>
-            
-            <a href="game.html" class="body__button">start</a>
+            <?php
+             if(!empty($_SESSION["user"]["name"])) : ?>
+                <a class="body__username">Hello, <?php echo($_SESSION["user"]["name"]) ?></a>
+                <a href="/pages/Score.php" class="body__button" id="Scorebutton">Score</a>
+            <?php else : ?>
+                <a href="/pages/login.php" class="body__button" id="LoginButton">Login</a>
+            <?php endif ?>
+            <a href="/pages/game.php" class="body__button">Start</a>
             <script src="js/rangeView.js"></script>
             <script src="js/configSetter.js"></script>
         </div>

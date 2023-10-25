@@ -2,40 +2,46 @@ $grrenMain: rgb(74, 185, 74);
 $grrenDark: rgb(63, 136, 63);
 $background: rgb(67, 63, 63);
 @import url(nullstyle.css);
+
 body{
     background-color: rgb(67, 63, 63);
 }
 .wrapepr {
     font-family: Arial, Helvetica, sans-serif;
-    height: 500px;
 }
 .body {
     margin: 0 auto;
+    margin-top: 30px;
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     color: aliceblue;
 }
 .body__title {
     font-size: 45px;
-    margin: 40px 0;
 }
 .body__button {
     text-decoration: none;
     color: aliceblue;
     background-color: $grrenMain;
     border-radius: 20px;
-    padding: 20px 40px;
     transition: 0.5s;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 70px;
+    &:hover{
+        background-color: $grrenDark;
+    }
 }
-.body__button:hover{
-    background-color: $grrenDark;
-}
+
 .range{
-    height: 200px;
+    height: 80px;
     position: relative;
 }
 .range__field{
@@ -119,6 +125,46 @@ body{
     margin-top: 20px;
 }
 
+.inputField{
+    border-radius: 4px;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+}
 
+h2{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.body__link{
+    margin: 10px 0;
+    text-decoration: underline;
+    color:cadetblue;
+}
+
+.red{
+    background-color: rgb(231, 39, 39);
+    &:hover{
+        background-color: rgb(174, 37, 37);
+    }
+}
+
+.errorMassage{
+    font-size: 14px;
+    text-shadow: 2px 2px 2px black;
+    color: red;
+    margin: 10px;
+}
+
+.body__username{
+    font-size: 25px;
+    color: aliceblue;
+    &:hover{
+        color: rgb(155, 170, 183);
+    }
+    text-decoration: overline;
+    margin-bottom: 15px;
+}
 
 

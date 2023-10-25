@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="manifest" href="icons/site.webmanifest">
-    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#cf1111">
     <meta name="theme-color" content="#cf1111">
 
-    <link rel="stylesheet" href="css/gameStyle.css">
+    <link rel="stylesheet" href="/css/gameStyle.css">
     <title>Snake</title>
 </head>
 <body>
@@ -29,12 +29,11 @@
             </div>
             <canvas id="mainCanvas" class="canvas" width="320" height="320"></canvas>
             <div id = "restartMenu" class="body__menu hide">
-                <a href="game.html" class="body__restart button ">Restart</a>
-                <a href="index.html" class="body__back button">Back</a>
+                <a href="/pages/game.php" class="body__restart button ">Restart</a>
+                <a href="/index.php" class="body__back button">Back</a>
             </div>
         </div>
     </div>
-    <script type="module" src="js/game.js"></script>
-
+    <script type="module" src="/js/game.js"></script>
 </body>
 </html>
