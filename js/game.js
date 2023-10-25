@@ -17,6 +17,7 @@ var buttonManager;
 var directionChanger;
 
 function gameStart(){
+    console.log("gg");
     config.fieldSize = [localStorage.getItem("fieldSize"), localStorage.getItem("fieldSize")];
     config.gameSpeed = localStorage.getItem("gameSpeed");
     document.getElementById('speed').textContent = config.gameSpeed+" turn/ms";
@@ -24,6 +25,10 @@ function gameStart(){
     iniVars();
     update();
 }
+function getStartPosition(){
+    return [Math.floor(config.fieldSize[0]/2), Math.floor(config.fieldSize[1]/2)];
+}
+
 function update(){
     if(!gameOn){
         return;
@@ -37,6 +42,7 @@ function update(){
 
 
 function gameEnd(){
+    sendRequest();
     gameOn = false;
     buttonManager.setRestartMenuStatys(true);
 }
@@ -44,7 +50,7 @@ function gameEnd(){
 function iniVars(){
     canvasDrawer = new CanvasDrawer("#a30000", "#f50505", "#55f505",config.cellSize);
     berry = new Berry(config.fieldSize);
-    snake = new Snake(config.startSize, config.startPositon, config.startDir, config.fieldSize);
+    snake = new Snake(config.startSize, getStartPosition(), config.startDir, config.fieldSize);
     scoreManager = new ScoreManager();
     buttonManager = new ButtonManager();
     directionChanger = new DirectionChanger();
@@ -63,6 +69,26 @@ function checkCollision(){
         berry.randomiseBerry(snake.body);
         scoreManager.increaseScore();
     }
+}
+
+function sendRequest(){
+    var xhr = new XMLHttpRequest();
+    var url = "/src/scoreProcessor.php";
+    xhr.open("Post", url);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    console.log(scoreManager.score);
+    var params = "score=" + scoreManager.score+"&fieldWidth=" + config.fieldSize[0] +"&fieldHeight=" + config.fieldSize[1] +"&speed="+config.gameSpeed;
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Парсим JSON-ответ
+            var response = JSON.parse(xhr.responseText);
+            // Выводим ответ в консоль
+            console.log("Ответ от сервера: " + response.message);
+        }
+    };
+
+    xhr.send(params);
 }
 
 gameStart();

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,10 @@
 <body>
     <div class="wrapper">
         <div class="body">
+            <?php
+            if(!empty($_SESSION["user"]["name"])) : ?>
+                <a class="body__username">Hello, <?php echo($_SESSION["user"]["name"]) ?></a>
+            <?php endif; ?>
             <div class="body__row">
                 <div class="body__inscription">
                     <span>Score: </span>

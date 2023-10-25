@@ -26,7 +26,6 @@ require_once '../src/connection.php';
 $sql = "SELECT COUNT(*) FROM Users WHERE name = '$username'";
 $answ = mysqli_query($connect, $sql);
 $count = mysqli_fetch_array($answ)[0];
-echo($count);
 if($count == 0){
     $salt = bin2hex(random_bytes(16));
     $hashedPassword = GeneratePasswordHash($userPassword, $salt);
