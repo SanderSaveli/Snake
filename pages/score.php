@@ -17,6 +17,10 @@
     <div class="wrapepr">
         <div class="body">
             <h2>Score</h2>
+            <div class="body_row">
+                <a href="/index.php" class="body__button">Back</a>
+                <span class="body__button" id="myScoreButton">My score</span>
+            </div>
             <table class="body_table">
                 <thead>
                     <tr>
@@ -30,8 +34,7 @@
                 <tbody id="userTableBody">
 
                 </tbody>
-            </table>
-            <a href="/index.php" class="body__button">Back</a>
+            </table> 
         </div>
     </div>
     <script src="../js/scoreList.js"></script>

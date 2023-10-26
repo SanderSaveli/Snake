@@ -36,6 +36,19 @@ function getScoreWithPlayerAndField($connect){
     JOIN Users AS U ON S.player_id = U.user_id
     JOIN Field_configs AS F ON S.field_confog_id = F.config_id;";
     $answ = mysqli_query($connect, $quere);
+    return convertToArray($answ);
+}
+function getUserScores($connect, $userName){
+    $quere = "SELECT 
+    S.score, S.timestamp, U.name AS user_name, F.width, F.height, F.speed
+    FROM Scores AS S
+    JOIN Users AS U ON S.player_id = U.user_id
+    JOIN Field_configs AS F ON S.field_confog_id = F.config_id
+    WHERE U.name = '$userName';";
+    $answ = mysqli_query($connect, $quere);
+    return convertToArray($answ);
+}
+function convertToArray($answ){
     $arr = array();
     while($curr = mysqli_fetch_assoc($answ)){
         $arr[] = $curr;

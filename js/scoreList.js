@@ -1,14 +1,17 @@
-function getUsers() {
+function getUsers(type) {
     var xhr = new XMLHttpRequest();
     var url = "/src/scoreSender.php";
     xhr.open("Post", url);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log("good");
             var users = JSON.parse(xhr.responseText);
-            console.log(users);
             var tableBody = document.getElementById("userTableBody");
+            if (tableBody) {
+                while (tableBody.rows.length > 0) {
+                    tableBody.deleteRow(0);
+                }
+            }
 
             for (var i = 0; i < users.length; i++) {
                 var row = tableBody.insertRow(i);
@@ -26,8 +29,14 @@ function getUsers() {
             }
         }
     };
-
-    xhr.send();
+    var data = "type=" + type;
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(data);
 }
-
-getUsers();
+function changeType(){
+    getUsers("user");
+    console.log("s");
+}
+var scoreButton = document.getElementById("myScoreButton");
+scoreButton.addEventListener("click", this.changeType);
+getUsers("all");
