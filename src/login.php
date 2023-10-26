@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/validationHelpers.php';
 $username = $_POST["username"];
 $userPassword = $_POST['password'];
 ClearValidation();

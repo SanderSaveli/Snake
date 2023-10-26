@@ -17,10 +17,23 @@
     <div class="wrapepr">
         <div class="body">
             <h2>Score</h2>
-            <div class="body__row">
-                
-            </div>
+            <table class="body_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Field Size</th>
+                        <th>Speed</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+
+                </tbody>
+            </table>
+            <a href="/index.php" class="body__button">Back</a>
         </div>
     </div>
+    <script src="../js/scoreList.js"></script>
 </body>
 </html>

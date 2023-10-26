@@ -1,5 +1,5 @@
 <?php 
-    require_once "/Program/OSPanel/domains/Snake/src/helpers.php";
+    require_once "/Program/OSPanel/domains/Snake/src/validationHelpers.php";
 ?>
 
 <!DOCTYPE html>

@@ -52,7 +52,7 @@
             </div>
             <?php
              if(!empty($_SESSION["user"]["name"])) : ?>
-                <a class="body__username">Hello, <?php echo($_SESSION["user"]["name"]) ?></a>
+                <a href="/pages/Login.php" class="body__username">Hello, <?php echo($_SESSION["user"]["name"]) ?></a>
                 <a href="/pages/Score.php" class="body__button" id="Scorebutton">Score</a>
             <?php else : ?>
                 <a href="/pages/login.php" class="body__button" id="LoginButton">Login</a>
